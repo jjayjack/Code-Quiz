@@ -167,15 +167,18 @@ startGame();
         //  Timer once start button is activated            //
 document.querySelector("#start").addEventListener("click", function(){
     display();
-        var setTimer;
-            setTimer = setInterval(function() {
-                counter--;
-                if(counter == 0) {
-                    clearInterval(setTimer);
-                }
+    var secondsLeft = 60;
+    var timer = document.querySelector(".timer")
+    var timerInterval = setInterval(function(){
+        secondsLeft--;
+        timer.textContent = secondsLeft;
+        //stops quiz once time is 0
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
 
-            }, 1000);
-            });
+    })
 
 function display(){
     console.log(question[0].q);
