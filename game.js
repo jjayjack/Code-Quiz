@@ -186,3 +186,7 @@ function display(){
 
    document.body.appendChild(answer);
  }
+
+ //High Score saved
+ localStorage.setItem("lastname", "Smith");
+ document.getElementById("finalScore").innerHTML = localStorage.getItem("username")
