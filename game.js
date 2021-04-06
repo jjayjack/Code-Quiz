@@ -1,13 +1,9 @@
 var question = document.querySelector("#question");
 var choices = document.querySelectorAll(".choice-text");
-var progressText = document.querySelector("#progressText");
 var scoreText = document.querySelector("#score");
-// var progressBarFull = document.querySelector("#progressBarFull");
-
 var currentQuestion = {};
-var acceptingAnswers = true;
 var score = 0;
-var questionCounter = 0;
+var questionIndex = 0;
 var availableQuestions = [];
 
 
@@ -18,7 +14,7 @@ var questions = [
         choice2: "Booleans",
         choice3: "Alerts",
         choice4: "Numbers",
-        correctAnswer: 3
+        correctAnswer: 3,
     },
     {
         question: "The condition in an if / else statement is enclosed within _____.",
@@ -58,25 +54,40 @@ var h3 = document.createElement('h3');
 var questionBox = document.createTextNode("");
 h3.appendChild(questionBox);
 document.getElementById("question").appendChild(h3);
-console.log(questionBox);
-var SCORE_POINTS = 100;
 var MAX_QUESTIONS = 5;
 
+document.getElementById("start").addEventListener("click", function(e){
+    e.preventDefault();
+    display();
+    startGame();
+            //  Timer once start button is activated            //
+    var secondsLeft = 60;
+    var timer = document.querySelector(".timer")
+    var timerInterval = setInterval(function(){
+        secondsLeft--;
+        timer.textContent = ("Time Left: " + secondsLeft);
+        //stops quiz once time is 0
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+
+    })
+
 function startGame() {
-    score = 0
-    availableQuestions = [...questions]
-    var output = [];
-    getNewQuestion()
+    score = 0;
+    availableQuestions = [...questions];
+    getNewQuestion();
 }
 
 function getNewQuestion() {
     if (availableQuestions.length === 0){
         localStorage.setItem('mostRecentScore', score)
-        return window.location.assign('/end.html') //change to highScores
+        return //change to highScore
     }
 
-    var questionIndex = Math.floor(Math.random()* availableQuestions.length);
-    currentQuestion = availableQuestions[questionIndex] //keeps track of current question displayed
+    questionIndex = Math.floor(Math.random()* availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex]; //keeps track of current question displayed
 
     //replace question for questions
     question.innerText = currentQuestion.question;
@@ -86,19 +97,6 @@ function getNewQuestion() {
     choices[1].innerText = currentQuestion.choice2;
     choices[2].innerText = currentQuestion.choice3;
     choices[3].innerText = currentQuestion.choice4;
-
-    //after each question is answered, question is removed from availableQuestions
-    availableQuestions.splice(questionIndex, 1);
-
-    //move to the next question
-    // output.push (
-    //     `<div class="slide">
-    //     <div class ="question"`> ${currentQuestion.question}</div>
-    //     <div class="answers"> ${choices.join("")} </div>`
-    //     </div>)
-
-
-    
 
 }
 
@@ -115,6 +113,12 @@ document.querySelector("#choice1").addEventListener("click", function(){
         //if incorrect reduce time
 
     } 
+        //after each question is answered, question is removed from availableQuestions
+        availableQuestions.splice(questionIndex, 1);
+        console.log(availableQuestions);
+    
+        //move to the next question
+        getNewQuestion();
 });
 
 document.querySelector("#choice2").addEventListener("click", function(){
@@ -124,10 +128,16 @@ document.querySelector("#choice2").addEventListener("click", function(){
         //add points to score if correct
             score += 100;
             scoreText.innerText = score;
-    }else if ( 1 !== currentQuestion.correctAnswer) {
+    }else if ( 2 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
 
     }
+        //after each question is answered, question is removed from availableQuestions
+        availableQuestions.splice(questionIndex, 1);
+        console.log(availableQuestions);
+    
+        //move to the next question
+        getNewQuestion();
 });
 
 document.querySelector("#choice3").addEventListener("click", function(){
@@ -137,9 +147,15 @@ document.querySelector("#choice3").addEventListener("click", function(){
         //add points to score if correct
             score += 100;
             scoreText.innerText = score;
-    }else if ( 1 !== currentQuestion.correctAnswer) {
+    }else if ( 3 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
     }
+        //after each question is answered, question is removed from availableQuestions
+        availableQuestions.splice(questionIndex, 1);
+        console.log(availableQuestions);
+    
+        //move to the next question
+        getNewQuestion();
 });
 
 document.querySelector("#choice4").addEventListener("click", function(){
@@ -149,45 +165,23 @@ document.querySelector("#choice4").addEventListener("click", function(){
         //add points to score if correct
             score += 100;
             scoreText.innerText = score;
-    }else if ( 1 !== currentQuestion.correctAnswer) {
+    }else if ( 4 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
     }
+        //after each question is answered, question is removed from availableQuestions
+        availableQuestions.splice(questionIndex, 1);
+        console.log(availableQuestions);
+    
+        //move to the next question
+        getNewQuestion();
 }); 
 
-//change color of box on click
-// document.getElementById("button").onclick = changeColor;
-// function changeColor(){
-    // var clickedQuestion = document.getElementsByClassName("choice-container");
-    // document.clickedQuestion.style.backgroundColor = "violet";
-    // return false;
-// }
 
-startGame();
-
-        //  Timer once start button is activated            //
-document.querySelector("#start").addEventListener("click", function(){
-    display();
-    var secondsLeft = 60;
-    var timer = document.querySelector(".timer")
-    var timerInterval = setInterval(function(){
-        secondsLeft--;
-        timer.textContent = secondsLeft;
-        //stops quiz once time is 0
-        if(secondsLeft === 0) {
-            clearInterval(timerInterval);
-        }
-    }, 1000);
-
-    })
 
 function display(){
-    console.log(question[0].q);
-     var answer = document.createElement("button");
-     answer.setAttribute("class","user-ans");
-     answer.textContent =questions[0].answer[0];
-     console.log(answer.textContent);
+    //add reveal of container
+    document.getElementById("question-container").style.display = "block";
 
-   document.body.appendChild(answer);
  }
 
  //High Score saved
