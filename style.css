@@ -2,7 +2,7 @@
     background-color: white;
     color: Black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 5px;    
+    margin: 5px;
 }
 
 #container {
@@ -13,8 +13,15 @@
 .choice-container {
     background-color: purple;
     color: white;
+    width: 300px;
+    display: flex;
+    margin: 10px;
 }
 
-.choice-container.hover {
-    background-color: blueviolet;
+button.hover {
+    background-color: red;
+}
+
+.choice-prefix, .choice-text {
+    padding: 3px;
 }

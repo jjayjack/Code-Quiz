@@ -10,6 +10,7 @@ var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
 
+
 var questions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -53,12 +54,18 @@ var questions = [
     },
 ]
 
+var h3 = document.createElement('h3');
+var questionBox = document.createTextNode("");
+h3.appendChild(questionBox);
+document.getElementById("question").appendChild(h3);
+console.log(questionBox);
 var SCORE_POINTS = 100;
 var MAX_QUESTIONS = 5;
 
 function startGame() {
     score = 0
     availableQuestions = [...questions]
+    var output = [];
     getNewQuestion()
 }
 
@@ -72,7 +79,7 @@ function getNewQuestion() {
     currentQuestion = availableQuestions[questionIndex] //keeps track of current question displayed
 
     //replace question for questions
-    question.innerText = currentQuestion.question
+    question.innerText = currentQuestion.question;
 
     //replaces choice for each question
     choices[0].innerText = currentQuestion.choice1;
@@ -81,7 +88,17 @@ function getNewQuestion() {
     choices[3].innerText = currentQuestion.choice4;
 
     //after each question is answered, question is removed from availableQuestions
-    availableQuestions.splice(questionIndex, 1)
+    availableQuestions.splice(questionIndex, 1);
+
+    //move to the next question
+    // output.push (
+    //     `<div class="slide">
+    //     <div class ="question"`> ${currentQuestion.question}</div>
+    //     <div class="answers"> ${choices.join("")} </div>`
+    //     </div>)
+
+
+    
 
 }
 
@@ -89,15 +106,26 @@ document.querySelector("#choice1").addEventListener("click", function(){
     //check to see if choice 
     if ( 1 == currentQuestion.correctAnswer) {
         //text pop up for correct or incorrect
+            questionBox.textContent = "Correct!";
         //add points to score if correct
-
+            score += 100;
+            scoreText.innerText = score;
+    }else if ( 1 !== currentQuestion.correctAnswer) {
+        questionBox.textContent = "Incorrect!";
         //if incorrect reduce time
-    }
+
+    } 
 });
 
 document.querySelector("#choice2").addEventListener("click", function(){
     //check to see if choice 
     if ( 2 == currentQuestion.correctAnswer) {
+        questionBox.textContent = "Correct!";
+        //add points to score if correct
+            score += 100;
+            scoreText.innerText = score;
+    }else if ( 1 !== currentQuestion.correctAnswer) {
+        questionBox.textContent = "Incorrect!";
 
     }
 });
@@ -105,52 +133,56 @@ document.querySelector("#choice2").addEventListener("click", function(){
 document.querySelector("#choice3").addEventListener("click", function(){
     //check to see if choice 
     if ( 3 == currentQuestion.correctAnswer) {
+        questionBox.textContent = "Correct!";
+        //add points to score if correct
+            score += 100;
+            scoreText.innerText = score;
+    }else if ( 1 !== currentQuestion.correctAnswer) {
+        questionBox.textContent = "Incorrect!";
     }
 });
 
 document.querySelector("#choice4").addEventListener("click", function(){
     //check to see if choice 
     if ( 4 == currentQuestion.correctAnswer) {
+        questionBox.textContent = "Correct!";
+        //add points to score if correct
+            score += 100;
+            scoreText.innerText = score;
+    }else if ( 1 !== currentQuestion.correctAnswer) {
+        questionBox.textContent = "Incorrect!";
     }
-});
+}); 
 
-
-    //     var classToApply = selectedAnswer == currentQuestion.answer ? 'correct' :
-    //     'incorrect'
-
-    //     if(classToApply === 'correct') {
-    //         incrementScore(SCORE_POINTS)
-    //     }
-    //     selectedChoice.parentElement.classList.add(classToApply)
-
-        // setTimeout(() => {
-        //     selectedChoice.parentElement.classList.remove(classToApply)
-        //     getNewQuestion()
-
-        // }, 1000)
-    
-
-incrementScore = num => {
-    score +=num
-    scoreText.innerText = score
-}
+//change color of box on click
+// document.getElementById("button").onclick = changeColor;
+// function changeColor(){
+    // var clickedQuestion = document.getElementsByClassName("choice-container");
+    // document.clickedQuestion.style.backgroundColor = "violet";
+    // return false;
+// }
 
 startGame();
 
-//          Timer once start button is activated            //
-// document.querySelector("#start").addEventListener("click", function(){
-//     display();
-//         var setTimer;
-//             setTimer = setInterval(function() {
+        //  Timer once start button is activated            //
+document.querySelector("#start").addEventListener("click", function(){
+    display();
+        var setTimer;
+            setTimer = setInterval(function() {
+                counter--;
+                if(counter == 0) {
+                    clearInterval(setTimer);
+                }
 
-//             }, 1000);
-//             });
+            }, 1000);
+            });
 
-// function display(){
-//     console.log(question[0].q);
-//      var answer = document.createElement("button");
-//      answer.setAttribute("class","user-ans");
-//      answer.textContent =questions[0].answer[0];
+function display(){
+    console.log(question[0].q);
+     var answer = document.createElement("button");
+     answer.setAttribute("class","user-ans");
+     answer.textContent =questions[0].answer[0];
+     console.log(answer.textContent);
 
-//    document.body.appendChild(answer);
-//  }
+   document.body.appendChild(answer);
+ }
