@@ -1,5 +1,26 @@
 # 04 Web APIs: Code Quiz
 
+     \\   Starting code and fixes for Code Quiz   //
+Starting HTML file to create elements, classes and ids
+  ![image](https://user-images.githubusercontent.com/79474830/113674504-deecb580-967f-11eb-8ee1-36f955625828.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113674573-f0ce5880-967f-11eb-81f3-4a02cbe6effd.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113674614-004da180-9680-11eb-975f-8abc75dd1c68.png)
+Starting CSS
+  ![image](https://user-images.githubusercontent.com/79474830/113675189-b74a1d00-9680-11eb-82f3-e14acb977aee.png)
+Starting JavaScript
+  ![image](https://user-images.githubusercontent.com/79474830/113675237-c630cf80-9680-11eb-91db-5d83b6578dcf.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113675304-d648af00-9680-11eb-9568-5fda2d5a4b10.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113675350-e2347100-9680-11eb-82a1-713929cdd535.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113675418-f2e4e700-9680-11eb-9ea2-05f9977fe270.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113675469-ff693f80-9680-11eb-93e3-3e49dd6124ec.png)
+Starting Webpage
+  ![image](https://user-images.githubusercontent.com/79474830/113675521-114ae280-9681-11eb-90de-1bae668b5b79.png)
+  ![image](https://user-images.githubusercontent.com/79474830/113675571-1e67d180-9681-11eb-8797-e18661031c4d.png)
+
+
+
+   
+
 ## Your Task
 
 At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
