@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <header class="container">
         <div id="home" class="flex-column flex-center">
             <h1>Coding Quiz Challenge</h1>
-            <a href="/game.html" class="btn">Play</a>
-            <a href="/highscores.html" id="highscore-btn" class="btn">Highscores</a>
+            <a href="" class="btn" id="start">Start</a>
+            <a href="" id="highscore-btn" class="btn">Highscores</a>
         </div>
-    </div>
+    </header>
     <div class="container">
         <div id="game" class="justify-center flex-column">
             <div id="display">
@@ -34,25 +34,39 @@
                         </h1>
                     </div>
                 </div>
-                <h1 id="question">What is ?</h1>
-                <div class="choice-container">
-                    <p class="choice-prefix">A</p>
-                    <p class="choice-text" data-number="1">Choice</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">B</p>
-                    <p class="choice-text" data-number="2">Choice</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">C/p>
-                    <p class="choice-text" data-number="3">Choice</p>
-                </div>
-                <div class="choice-container">
-                    <p class="choice-prefix">D</p>
-                    <p class="choice-text" data-number="4">Choice</p>
-                </div>
             </div>
         </div>
     </div>
+    <div class="questions">
+        <h1 id="question">What is ?</h1>
+            <div class="choice-container" id="choice1">
+                <p class="choice-prefix">A</p>
+                <p class="choice-text" data-number="1">Choice</p>
+            </div>
+            <div class="choice-container" id="choice2">
+                <p class="choice-prefix">B</p>
+                <p class="choice-text" data-number="2">Choice</p>
+            </div>
+            <div class="choice-container" id="choice3">
+                <p class="choice-prefix">C</p>
+                <p class="choice-text" data-number="3">Choice</p>
+            </div>
+            <div class="choice-container" id="choice4">
+                <p class="choice-prefix">D</p>
+                <p class="choice-text" data-number="4">Choice</p>
+            </div>
+
+    </div>
+    <div class="highscore">
+        <h1 id="finalScore">0</h1>
+        <form class="container">
+            <h2 id="userName">Enter your name below to save your score!</h2>
+            <input type="text" name="name" id="username" placeholder="Enter your name">
+            <button class="btn" id="saveScoreBtn" type="submit" onClick="saveHighScore(event)" disabled>Save</button>
+        </form>
+        <a class="btn">Play Again</a>
+        <a href="/"  class="btn">Go home</a>
+    </div>
+    <script src="game.js"></script>
 </body>
 </html>

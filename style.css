@@ -1,0 +1,20 @@
+:root {
+    background-color: white;
+    color: Black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5px;    
+}
+
+#container {
+    margin: 10px;
+    padding: 5px;
+}
+
+.choice-container {
+    background-color: purple;
+    color: white;
+}
+
+.choice-container.hover {
+    background-color: blueviolet;
+}
