@@ -36,8 +36,7 @@ h1{
     color: white;
     font-weight: bold;
     width: 300px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin: 10px;
     border-radius: 15px;
 }
