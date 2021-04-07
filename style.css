@@ -16,8 +16,9 @@ h1{
     text-decoration: none;
 }
 
-.timer{
+#timer{
     padding-left: 900px;
+    display: none;
 }
 
 
@@ -46,6 +47,10 @@ button:hover {
 
 .choice-prefix, .choice-text {
     padding: 3px;
+}
+
+#display-item {
+    display: none;
 }
 
 #highscore {

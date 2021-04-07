@@ -57,7 +57,7 @@ function timer(){     //  Timer once start button is activated            //
     display();
     startGame();
     secondsLeft = 60;
-    var timer = document.querySelector(".timer")
+    var timer = document.querySelector("#timer")
     var timerInterval = setInterval(function(){
         secondsLeft--;
         if (secondsLeft < 0) {
@@ -76,6 +76,8 @@ function timer(){     //  Timer once start button is activated            //
 function display(){
     //add reveal of container
     document.getElementById("question-container").style.display = "block";
+    document.getElementById("display-item").style.display = "block";
+    document.getElementById("timer").style.display = "block";
 }
 
 function startGame() {
