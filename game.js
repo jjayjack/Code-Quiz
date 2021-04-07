@@ -5,7 +5,7 @@ var currentQuestion = {};
 var score = 0;
 var questionIndex = 0;
 var availableQuestions = [];
-
+var secondsLeft = 60;
 
 var questions = [
     {
@@ -61,14 +61,20 @@ document.getElementById("start").addEventListener("click", function(e){
     display();
     startGame();
             //  Timer once start button is activated            //
-    var secondsLeft = 60;
+    secondsLeft = 60;
     var timer = document.querySelector(".timer")
     var timerInterval = setInterval(function(){
         secondsLeft--;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+            
+        } 
         timer.textContent = ("Time Left: " + secondsLeft);
         //stops quiz once time is 0
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
+            endGame();
             clearInterval(timerInterval);
+    
         }
     }, 1000);
 
@@ -82,7 +88,7 @@ function startGame() {
 
 function getNewQuestion() {
     if (availableQuestions.length === 0){
-        localStorage.setItem('mostRecentScore', score)
+        secondsLeft = 0;
         return //change to highScore
     }
 
@@ -111,6 +117,8 @@ document.querySelector("#choice1").addEventListener("click", function(){
     }else if ( 1 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
         //if incorrect reduce time
+        secondsLeft -= 10;
+
 
     } 
         //after each question is answered, question is removed from availableQuestions
@@ -130,6 +138,7 @@ document.querySelector("#choice2").addEventListener("click", function(){
             scoreText.innerText = score;
     }else if ( 2 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
+        secondsLeft -= 10;
 
     }
         //after each question is answered, question is removed from availableQuestions
@@ -149,6 +158,7 @@ document.querySelector("#choice3").addEventListener("click", function(){
             scoreText.innerText = score;
     }else if ( 3 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
+        secondsLeft -= 10;
     }
         //after each question is answered, question is removed from availableQuestions
         availableQuestions.splice(questionIndex, 1);
@@ -167,6 +177,7 @@ document.querySelector("#choice4").addEventListener("click", function(){
             scoreText.innerText = score;
     }else if ( 4 !== currentQuestion.correctAnswer) {
         questionBox.textContent = "Incorrect!";
+        secondsLeft -= 10;
     }
         //after each question is answered, question is removed from availableQuestions
         availableQuestions.splice(questionIndex, 1);
@@ -176,6 +187,27 @@ document.querySelector("#choice4").addEventListener("click", function(){
         getNewQuestion();
 }); 
 
+function endGame(){
+    
+    // document.createElement('h4');
+    // h4.textContent("Game Over!");
+    document.getElementById("question-container").style.display = "none";
+    document.getElementById("highscore").style.display = "block";
+    localStorage.setItem('mostRecentScore', score);
+    document.getElementById("finalScore").innerHTML = localStorage.getItem("mostRecentScore");
+
+}
+
+function highScores(){
+    var div = document.createElement("div");
+    var scores = document.textContent("High Scores");
+    div.append(scores);
+}
+document.getElementById("saveScoreBtn").addEventListener("click", function(e){
+    e.preventDefault();
+//High Score saved
+    localStorage.setItem("lastname", "Smith");
+})
 
 
 function display(){
@@ -184,6 +216,4 @@ function display(){
 
  }
 
- //High Score saved
- localStorage.setItem("lastname", "Smith");
- document.getElementById("finalScore").innerHTML = localStorage.getItem("username")
+ 
