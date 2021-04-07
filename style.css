@@ -5,10 +5,21 @@
     margin: 5px;
 }
 
-#container {
-    margin: 10px;
-    padding: 5px;
+h1{
+    text-align: center;
 }
+
+.container, .container a {
+    margin: 10px;
+    padding-top: 5px;
+    text-align: justify;
+    text-decoration: none;
+}
+
+.timer{
+    padding-left: 900px;
+}
+
 
 #highScores {
     display: none;
@@ -16,6 +27,7 @@
 
 #question-container {
     display: none;
+    margin: auto;
 }
 
 .choice-container {
