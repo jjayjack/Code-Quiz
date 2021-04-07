@@ -206,7 +206,8 @@ function highScores(){
 document.getElementById("saveScoreBtn").addEventListener("click", function(e){
     e.preventDefault();
 //High Score saved
-    localStorage.setItem("lastname", "Smith");
+var input = document.getElementById("initials");
+    localStorage.setItem("name", input.value);
 })
 
 
