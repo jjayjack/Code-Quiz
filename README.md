@@ -1,5 +1,12 @@
 # 04 Web APIs: Code Quiz
-\\        Updated code reflecte on webpage            //
+\\        Updated code reflected on webpage            //
+![image](https://user-images.githubusercontent.com/79474830/113815783-5b8f9a80-9739-11eb-839e-545cc0b2017d.png)
+![image](https://user-images.githubusercontent.com/79474830/113815838-6fd39780-9739-11eb-8453-9732a183c10e.png)
+![image](https://user-images.githubusercontent.com/79474830/113815970-a90c0780-9739-11eb-8738-18b7305c5985.png)
+
+
+
+\\        Updated code reflected on webpage            //
 ![image](https://user-images.githubusercontent.com/79474830/113812276-70692f80-9733-11eb-80d4-d9fc883710b8.png)
 ![image](https://user-images.githubusercontent.com/79474830/113812298-795a0100-9733-11eb-8f41-4a55d04faaf6.png)
 ![image](https://user-images.githubusercontent.com/79474830/113812327-8676f000-9733-11eb-9c90-bd5a9a58f00d.png)
