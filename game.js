@@ -75,7 +75,7 @@ function timer(){     //  Timer once start button is activated            //
 
 function display(){
     //add reveal of container
-    document.getElementById("question-container").style.display = "block";
+    document.getElementById("question-container").style.display = "flex";
     document.getElementById("display-item").style.display = "block";
     document.getElementById("timer").style.display = "block";
 }

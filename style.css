@@ -28,7 +28,7 @@ h1{
 
 #question-container {
     display: none;
-    margin: auto;
+
 }
 
 .choice-container {
@@ -37,6 +37,7 @@ h1{
     font-weight: bold;
     width: 300px;
     display: flex;
+    justify-content: center;
     margin: 10px;
     border-radius: 15px;
 }
