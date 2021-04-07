@@ -1,4 +1,13 @@
 # 04 Web APIs: Code Quiz
+\\        Updated code reflecte on webpage            //
+![image](https://user-images.githubusercontent.com/79474830/113812276-70692f80-9733-11eb-80d4-d9fc883710b8.png)
+![image](https://user-images.githubusercontent.com/79474830/113812298-795a0100-9733-11eb-8f41-4a55d04faaf6.png)
+![image](https://user-images.githubusercontent.com/79474830/113812327-8676f000-9733-11eb-9c90-bd5a9a58f00d.png)
+![image](https://user-images.githubusercontent.com/79474830/113812349-9098ee80-9733-11eb-9097-b09520505d7b.png)
+![image](https://user-images.githubusercontent.com/79474830/113812379-a1496480-9733-11eb-9a5e-346577297c04.png)
+![image](https://user-images.githubusercontent.com/79474830/113812416-b0c8ad80-9733-11eb-83e7-fe076dbbcc45.png)
+
+
 
      \\   Starting code and fixes for Code Quiz   //
 Starting HTML file to create elements, classes and ids
