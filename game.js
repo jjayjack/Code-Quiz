@@ -6,7 +6,6 @@ var score = 0;
 var questionIndex = 0;
 var availableQuestions = [];
 var secondsLeft = 60;
-
 var questions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -193,21 +192,34 @@ function endGame(){
     // h4.textContent("Game Over!");
     document.getElementById("question-container").style.display = "none";
     document.getElementById("highscore").style.display = "block";
-    localStorage.setItem('mostRecentScore', score);
-    document.getElementById("finalScore").innerHTML = localStorage.getItem("mostRecentScore");
+    document.getElementById("finalScore").innerHTML = score;
 
 }
 
 function highScores(){
-    var div = document.createElement("div");
-    var scores = document.textContent("High Scores");
-    div.append(scores);
+    document.getElementById("highScores").style.display = "block";
+    var scoreFinal = localStorage.getItem("mostRecentScore");
+    var user = localStorage.getItem("name");
+    document.getElementById("scoreFinal").innerHTML = scoreFinal;
+    document.getElementById("user").innerHTML = user;
 }
+document.getElementById("highscore-btn").addEventListener("click", function(e){
+    e.preventDefault();
+    highScores();
+})
+document.getElementById("reset").addEventListener("click", function(e){
+    e.preventDefault();
+    localStorage.setItem("mostRecentScore", "");
+    localStorage.setItem("name", "");
+    highScores();
+})
 document.getElementById("saveScoreBtn").addEventListener("click", function(e){
     e.preventDefault();
 //High Score saved
 var input = document.getElementById("initials");
+    localStorage.setItem('mostRecentScore', score);
     localStorage.setItem("name", input.value);
+    highScores();
 })
 
 
