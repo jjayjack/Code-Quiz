@@ -21,9 +21,11 @@
 .choice-container {
     background-color: purple;
     color: white;
+    font-weight: bold;
     width: 300px;
     display: flex;
     margin: 10px;
+    border-radius: 15px;
 }
 
 button:hover {

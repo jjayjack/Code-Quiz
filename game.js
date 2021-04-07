@@ -47,9 +47,7 @@ var questions = [
         choice4: "console.log",
         correctAnswer: 4,
     },
-]
-
-var MAX_QUESTIONS = 5;
+];
 
 document.getElementById("start").addEventListener("click", function(e){
     e.preventDefault();
@@ -75,37 +73,34 @@ function timer(){     //  Timer once start button is activated            //
         }
     }, 1000);};
 
-
-document.getElementById("again").addEventListener("click", function(e){
-    e.preventDefault();
-    timer();
-})
+function display(){
+    //add reveal of container
+    document.getElementById("question-container").style.display = "block";
+}
 
 function startGame() {
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
-}
+    }
 
 function getNewQuestion() {
     if (availableQuestions.length === 0){
         secondsLeft = 0;
         return //change to highScore
     }
-
+    
     questionIndex = Math.floor(Math.random()* availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex]; //keeps track of current question displayed
-
     //replace question for questions
     question.innerText = currentQuestion.question;
-
     //replaces choice for each question
     choices[0].innerText = currentQuestion.choice1;
     choices[1].innerText = currentQuestion.choice2;
     choices[2].innerText = currentQuestion.choice3;
     choices[3].innerText = currentQuestion.choice4;
-
 }
+
 function runQuestion(i){
     if ( i == currentQuestion.correctAnswer) {
         //add points to score if correct
@@ -124,7 +119,6 @@ function runQuestion(i){
 document.querySelector("#choice1").addEventListener("click", function(){
     //check to see if choice 
     runQuestion(1);
-
 });
 
 document.querySelector("#choice2").addEventListener("click", function(){
@@ -160,12 +154,19 @@ document.getElementById("highscore-btn").addEventListener("click", function(e){
     e.preventDefault();
     highScores();
 })
+
+document.getElementById("again").addEventListener("click", function(e){
+    e.preventDefault();
+    timer();
+})
+
 document.getElementById("reset").addEventListener("click", function(e){
     e.preventDefault();
     localStorage.setItem("mostRecentScore", "");
     localStorage.setItem("name", "");
     highScores();
 })
+
 document.getElementById("saveScoreBtn").addEventListener("click", function(e){
     e.preventDefault();
 //High Score saved
@@ -174,12 +175,3 @@ var input = document.getElementById("initials");
     localStorage.setItem("name", input.value);
     highScores();
 })
-
-
-function display(){
-    //add reveal of container
-    document.getElementById("question-container").style.display = "block";
-
- }
-
- 
