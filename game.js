@@ -49,17 +49,15 @@ var questions = [
     },
 ]
 
-var h3 = document.createElement('h3');
-var questionBox = document.createTextNode("");
-h3.appendChild(questionBox);
-document.getElementById("question").appendChild(h3);
 var MAX_QUESTIONS = 5;
 
 document.getElementById("start").addEventListener("click", function(e){
     e.preventDefault();
+    timer();})
+
+function timer(){     //  Timer once start button is activated            //
     display();
     startGame();
-            //  Timer once start button is activated            //
     secondsLeft = 60;
     var timer = document.querySelector(".timer")
     var timerInterval = setInterval(function(){
@@ -75,9 +73,13 @@ document.getElementById("start").addEventListener("click", function(e){
             clearInterval(timerInterval);
     
         }
-    }, 1000);
+    }, 1000);};
 
-    })
+
+document.getElementById("again").addEventListener("click", function(e){
+    e.preventDefault();
+    timer();
+})
 
 function startGame() {
     score = 0;
@@ -104,92 +106,43 @@ function getNewQuestion() {
     choices[3].innerText = currentQuestion.choice4;
 
 }
-
-document.querySelector("#choice1").addEventListener("click", function(){
-    //check to see if choice 
-    if ( 1 == currentQuestion.correctAnswer) {
-        //text pop up for correct or incorrect
-            questionBox.textContent = "Correct!";
+function runQuestion(i){
+    if ( i == currentQuestion.correctAnswer) {
         //add points to score if correct
             score += 100;
             scoreText.innerText = score;
-    }else if ( 1 !== currentQuestion.correctAnswer) {
-        questionBox.textContent = "Incorrect!";
+    }else if ( i !== currentQuestion.correctAnswer) {
         //if incorrect reduce time
         secondsLeft -= 10;
-
-
     } 
         //after each question is answered, question is removed from availableQuestions
-        availableQuestions.splice(questionIndex, 1);
-        console.log(availableQuestions);
-    
+        availableQuestions.splice(questionIndex, 1);    
         //move to the next question
         getNewQuestion();
+};
+
+document.querySelector("#choice1").addEventListener("click", function(){
+    //check to see if choice 
+    runQuestion(1);
+
 });
 
 document.querySelector("#choice2").addEventListener("click", function(){
     //check to see if choice 
-    if ( 2 == currentQuestion.correctAnswer) {
-        questionBox.textContent = "Correct!";
-        //add points to score if correct
-            score += 100;
-            scoreText.innerText = score;
-    }else if ( 2 !== currentQuestion.correctAnswer) {
-        questionBox.textContent = "Incorrect!";
-        secondsLeft -= 10;
-
-    }
-        //after each question is answered, question is removed from availableQuestions
-        availableQuestions.splice(questionIndex, 1);
-        console.log(availableQuestions);
-    
-        //move to the next question
-        getNewQuestion();
+    runQuestion(2);
 });
 
 document.querySelector("#choice3").addEventListener("click", function(){
     //check to see if choice 
-    if ( 3 == currentQuestion.correctAnswer) {
-        questionBox.textContent = "Correct!";
-        //add points to score if correct
-            score += 100;
-            scoreText.innerText = score;
-    }else if ( 3 !== currentQuestion.correctAnswer) {
-        questionBox.textContent = "Incorrect!";
-        secondsLeft -= 10;
-    }
-        //after each question is answered, question is removed from availableQuestions
-        availableQuestions.splice(questionIndex, 1);
-        console.log(availableQuestions);
-    
-        //move to the next question
-        getNewQuestion();
+    runQuestion(3);
 });
 
 document.querySelector("#choice4").addEventListener("click", function(){
     //check to see if choice 
-    if ( 4 == currentQuestion.correctAnswer) {
-        questionBox.textContent = "Correct!";
-        //add points to score if correct
-            score += 100;
-            scoreText.innerText = score;
-    }else if ( 4 !== currentQuestion.correctAnswer) {
-        questionBox.textContent = "Incorrect!";
-        secondsLeft -= 10;
-    }
-        //after each question is answered, question is removed from availableQuestions
-        availableQuestions.splice(questionIndex, 1);
-        console.log(availableQuestions);
-    
-        //move to the next question
-        getNewQuestion();
+    runQuestion(4);
 }); 
 
 function endGame(){
-    
-    // document.createElement('h4');
-    // h4.textContent("Game Over!");
     document.getElementById("question-container").style.display = "none";
     document.getElementById("highscore").style.display = "block";
     document.getElementById("finalScore").innerHTML = score;
